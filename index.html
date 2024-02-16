@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<title>Un Site</title>
+		<link rel="icon" href="images/logo.png" />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		 
+		<div class="colone">
+			<header>Voiture</header>
+			<div class="Carré" id="liste-voitures"></div>
+			<a class="bouton" id="bouton-ajouter" href="ajouter.html">
+	 			 
+	 			 <i class="fa-solid fa-circle-plus">
+	 			 </i>
+			</a>
+			<a href="modifier.html">
+				
+			</a>
+		</div>
+		<script type="text/javascript">
+			console.log("Bonjour?");
+
+			(async () => {
+				const reponse = await fetch("http://localhost:3000/cars");
+	            const voitures = await reponse.json();
+
+	            let html = ""
+
+	            for (const voiture of voitures) {
+	            	html += `
+	            		<a class="lien-voiture" href ="modifier.html?nom=${voiture.nom}">
+							<img src="${voiture.image}">
+							<div class="encadrer">${voiture.nom}
+							<br>
+							${voiture.pays}</div>
+						</a>
+	            	`
+	            }
+
+	            document.getElementById('liste-voitures').innerHTML = html;
+			})()
+
+		
+
+
+            ///const somme = (premierChiffre, secondChiffre) => premierChiffre + secondChiffre
+            //console.log(somme(10, 5, 3))
+
+		</script>
+
+		 
+
+	</body>
+
+</html>
+
+
+
+				

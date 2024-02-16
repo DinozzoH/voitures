@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>Un Site</title>
+		<link rel="icon" href="images/logo.png" />
+
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div class="colone">
+			<h1>Ajouter Votre Vehicule :)</h1>
+		
+			<a href="/" class="bouton">Retour</a>
+
+			<br><br>
+		<form action="" method="get" id="formulaire">
+			<label for="nom">Nom de Votre Vehicule</label>
+			<br>
+			<input id="nom" type="text" name="nom" autofocus class="champ">
+			<br>
+			<label for="lien">Lien</label>
+			<br>
+			<input id="lien" type="text" name="lien" class="champ">
+			<br>
+			<label for="lien">Pays</label>
+			<br>
+			<input id="Pays" type="text" name="Pays" class="champ">
+			<br><br>
+			<button type="submit" class="bouton">Ajouter</button>
+			<br>
+
+	</form>
+		</div>
+
+		<script>
+			document.getElementById('formulaire')
+				.addEventListener('submit', async event => {
+					event.preventDefault();
+
+					const nom = document.getElementById('nom').value;
+					const lien = document.getElementById('lien').value;
+					const Pays = document.getElementById('Pays').value;
+					const url = `http://localhost:3000/cars-add?nom=${nom}&lien=${lien}&Pays=${Pays}`;
+					const reponse = await fetch(url);
+	            	const text = await reponse.text();
+	            	console.log(text);
+
+	            	window.location.href = '/';
+				})
+
+
+	
+		</script>
+	</body>
+</html>

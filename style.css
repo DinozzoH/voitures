@@ -1,0 +1,63 @@
+* {
+	font-family: "Arial Black"
+}
+img:hover {
+	opacity: 0.5:
+}
+img {
+	width: 100%;
+}
+.colone{
+	width: 600px;
+	margin: 0 auto;
+
+
+}
+
+.encadrer{
+	font-style:italic;
+	color: black;
+
+}
+.lien-voiture{
+	text-decoration: none;
+}
+header {
+	text-align:center ;
+}
+.Carré{
+	display:flex;
+	flex-wrap: wrap ;
+}
+.carré a {
+	padding:10px;
+	width: 33.33%;
+	box-sizing: border-box;
+	border: solid 1px #ddd;
+}
+
+.bouton{
+	display: inline-block;
+	background-color: #be1ddd;
+	color: white;
+	padding: 10px 20px;
+	font-size: 14px;
+	text-decoration: none;
+	border: none;
+	border-radius: 20px;
+}
+
+.champ {
+	margin-top: 10px;
+	width: 100%;
+	border-color: #be1ddd;
+	border-radius: 20px;
+}
+
+#bouton-ajouter {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+
+}
+

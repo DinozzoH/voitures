@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Un Site</title>
+		<link rel="icon" href="images/logo.png" />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div class="colone">
+		<h1>Modification De Voiture</h1>
+		
+		<a href="../index.html">
+			
+			
+		</a>
+		<a href="/" class="bouton">Retour</a>
+
+			<br><br>
+		<form action="" method="get" id="formulaire">
+			<label for="nom">Nom de Votre Vehicule</label>
+			<br>
+			<input id="nom" type="text" name="nom" autofocus class="champ">
+			<br>
+			<label for="lien">Lien</label>
+			<br>
+			<input id="lien" type="text" name="lien" class="champ">
+			<br>
+			<label for="Pays">Pays</label>
+			<input id="Pays" type="text" name="Pays" class="champ">
+			<br><br>
+			<button type="submit" class="bouton">Modifier</button>
+			<button type="button" class="bouton" id="supprimer">suprimer</button>
+		</form>
+		</div>
+
+	</form>
+
+		<script>
+			const nom = new URL(window.location).searchParams.get('nom');
+
+			(async() => {
+				const url = `http://localhost:3000/car?nom=${nom}`;
+					const reponse = await fetch(url);
+	            	const car = await reponse.json();
+	            	document.getElementById('nom').value = car.nom;
+	            	document.getElementById('lien').value = car.image;
+	            	document.getElementById('Pays').value = car.pays
+			})()
+
+			document.getElementById('formulaire')
+				.addEventListener('submit', async event => {
+					event.preventDefault();
+
+					const nouveauNom = document.getElementById('nom').value;
+					const lien = document.getElementById('lien').value;
+					const Pays = document.getElementById('Pays').value;
+					const url = `http://localhost:3000/car-update?nom=${nom}&nouveauNom=${nouveauNom}&lien=${lien}&Pays=${Pays}`;
+					const reponse = await fetch(url);
+	            	const text = await reponse.text();
+	            	console.log(text);
+
+	            	window.location.href = '/';
+				})
+
+				document.getElementById('supprimer')
+					.addEventListener('click', async event => {
+						const url = `http://localhost:3000/supprimer-voiture?nom=${nom}`;
+						const reponse = await fetch(url);
+		            	const text = await reponse.text();
+		            	console.log(text);
+
+	            		window.location.href = '/';
+					})
+		</script>
+	</body>
+</html>
